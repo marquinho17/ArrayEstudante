@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudante</title>
+</head>
+
+<body>
+    <script>
+        // Crie um programa onde o usuário possa cadastrar estudantes sem limites, e, em seguida, Se o usuário digitar "PARE" o programa deve exibir a quantidade de estudantes cadastrados e a lista com cada um deles.  
+
+        // vai armazenar os nomes dos estudantes
+        let estudantes = [];
+
+        // vai colocar os nomes na array vazia, usando como parâmetro a variável que foi criada para armazenar os nomes.
+        function cadastrar_estudante(nome) {
+            estudantes.push(nome); // o "push" serve para adicionar algo ao final da array.
+        }
+
+        // aqui onde o programa realmente acontece, pois, é onde o prompt vai ser chamado e vai armazenar os nomes na variável "entrada", que vai ser refenciada no parâmetro "nome", fazendo os nomes serem colocados atraves do "push"
+        function programaCadastrarEstudantes() {
+            // a estrutura while vai fazer o programa repetir enquanto for verdadeiro, mas, assim que digitar PARE, ele para por causa do break.
+            while(true) {
+                let entrada = prompt("Digite o nome do estudante (ou 'PARE' para encerrar):");
+
+                if (entrada === "PARE") {
+                    break
+                } else {
+                    cadastrar_estudante(entrada); // passando a variável "entrada" como parâmetro para a função cadastrar_estudantes(), que tem como parâmetro "nome".
+                }
+            }
+
+            alert(`Quantidade de estudantes cadastrados: ${estudantes.length}`); // vai exibir a quantidade de estudantes cadastrados, com o auxilio do length, que exibi a quantidade de coisas guardadas no array.
+            alert("Lista de estudantes cadastrados:\n" + estudantes.join("\n")); // vai exibir a lista de estudantes cadastrados com o auxilio do join, que lista o que tiver dentro da array.
+
+        }
+
+        programaCadastrarEstudantes(); // vai chamar a função, para que assim ela funcione sem a precisão de um butão.
+
+    </script>
+</body>
+
+</html>
